@@ -72,8 +72,8 @@ def main():
     # methods creates the class list and extracts information
     megaClass = createClass()
     # pickle the class so can be run just once then saved for later inspection
-    f = open("pickleMegaClass", "wb")
-    pickle.dump(megaClass, f)
+    # f = open("pickleMegaClass", "wb")
+    # pickle.dump(megaClass, f)
 
     # file = open("pickleMegaClass", "rb")
     # megaClass = pickle.load(file)
@@ -81,7 +81,7 @@ def main():
 
 # methods creates a class per thread instance and populates a masterclass with resulting threads
 def createClass():
-    list_of_sub_ids = lookAtSubreddit(5)
+    list_of_sub_ids = lookAtSubreddit()
     megaClass = masterClass()
     for comment in list_of_sub_ids:
         # new instance of thread class
@@ -163,7 +163,7 @@ def harvestCommentReplies():
 
 
 # method extracts from hot desired num of comments 
-def lookAtSubreddit(limit = 10 ):
+def lookAtSubreddit(limit = 1000 ):
     # top // new // hot
     sub = reddit.subreddit("coronavirus").hot(limit= limit)
 
